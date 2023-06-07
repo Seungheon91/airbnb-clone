@@ -36,6 +36,13 @@ export async function POST(request: Request) {
       imageSrc,
       category,
       roomCount,
+      bathroomCount,
+      guestCount,
+      locationValue: location.value,
+      price: parseInt(price, 10),
+      userId: currentUser.id,
     },
   });
+
+  return NextResponse.json(listing);
 }
