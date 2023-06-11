@@ -1,12 +1,15 @@
-import { Nunito } from "next/font/google";
-import Navbar from "./components/navbar/Navbar";
 import "./globals.css";
-import ClientOnly from "./components/ClientOnly";
-import RegisterModal from "./components/modal/RegisterModal";
+import { Nunito } from "next/font/google";
 import ToasterProvider from "./providers/ToasterProvider";
-import LoginModal from "./components/modal/LoginModal";
 import getCurrentUser from "./actions/getCurrentUser";
+
+import ClientOnly from "./components/ClientOnly";
+import Navbar from "./components/navbar/Navbar";
+
+import RegisterModal from "./components/modal/RegisterModal";
+import LoginModal from "./components/modal/LoginModal";
 import RentModal from "./components/modal/RentModal";
+import SearchModal from "./components/modal/SearchModal";
 
 export const metadata = {
   title: "Airbnb",
@@ -32,6 +35,7 @@ export default async function RootLayout({
           <LoginModal />
           <RegisterModal />
           <RentModal />
+          <SearchModal />
           <Navbar currentUser={currentUser} />
         </ClientOnly>
         <div className="pb-20 pt-28">{children}</div>
