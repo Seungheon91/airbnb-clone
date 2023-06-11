@@ -15,12 +15,12 @@ export default async function getListings(params: IListingsParams) {
   try {
     const {
       userId,
-      guestCount,
       roomCount,
+      guestCount,
       bathroomCount,
+      locationValue,
       startDate,
       endDate,
-      locationValue,
       category,
     } = params;
 
@@ -75,18 +75,12 @@ export default async function getListings(params: IListingsParams) {
       };
     }
 
-    console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-    console.log(query);
-
     const listings = await prisma.listing.findMany({
       where: query,
       orderBy: {
         createdAt: "desc",
       },
     });
-
-    console.log("================================");
-    console.log(listings);
 
     const safeListings = listings.map((listing) => ({
       ...listing,
